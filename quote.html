@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZOCO — Request a Quotation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/logo.png" />
+</head>
+<body>
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="grid-pattern"></div>
+  </div>
+
+  <header class="nav">
+    <div class="nav__inner container">
+      <a class="brand" href="index.html#home">
+        <img src="assets/img/logo.png" alt="Zoco logo"/>
+        <span>ZOCO</span>
+      </a>
+      <div class="nav__right">
+        <button class="btn btn--ghost sm" id="openLocationQuote">Set Location</button>
+        <a class="btn btn--primary sm" href="#form">Submit</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container quote" id="form">
+    <div class="glass panel">
+      <h1>Request a Quotation</h1>
+      <p class="muted">Tell us a few details — we’ll reply with a plan and next steps.</p>
+
+      <form class="quote__form" onsubmit="event.preventDefault(); alert('Thanks! Your request has been captured.');">
+        <div class="field"><label>Full name</label><input type="text" name="name" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Organization (optional)</label><input type="text" name="org" placeholder="Team / school / company"></div>
+        <div class="field"><label>Where are you based?</label><input type="text" name="location" placeholder="City, Country"></div>
+        <div class="field"><label>Article</label>
+          <select name="article" required>
+            <option value="">Select one…</option>
+            <option>Hoodie — Sublimation</option>
+            <option>Hoodie — DTF</option>
+            <option>Trouser — Winter Fleece</option>
+            <option>Trouser — Summer Sports</option>
+            <option>Jersey / T‑Shirt</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Estimated quantity</label><input type="number" name="qty" min="1" step="1" placeholder="e.g., 40"></div>
+        <div class="field"><label>Sizes (optional)</label><textarea name="sizes" rows="3" placeholder="e.g., S-10, M-15, L-10, XL-5"></textarea></div>
+        <div class="field"><label>Printing method</label>
+          <select name="print">
+            <option value="">I’m not sure</option>
+            <option>Sublimation</option>
+            <option>DTF</option>
+            <option>Embroidery</option>
+          </select>
+        </div>
+        <div class="field"><label>Deadline</label><input type="date" name="deadline"></div>
+        <div class="field"><label>Notes</label><textarea name="notes" rows="4" placeholder="Design ideas, colors, references, delivery needs"></textarea></div>
+        <div class="field"><label>Upload reference (optional)</label><input type="file" name="file"></div>
+        <div class="actions">
+          <button class="btn btn--primary" type="submit">Submit Request</button>
+          <a class="btn btn--ghost" href="https://calendly.com/syed-ahmed-shah/30min?hide_event_type_details=1&hide_gdpr_banner=1" target="_blank" rel="noopener">Chat with an expert</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand"><img src="assets/img/logo.png" alt="Zoco logo small"><span>ZOCO</span></div>
+      <div class="footer__copy">© <span id="year"></span> Zoco. All rights reserved.</div>
+      <div class="footer__links"><a href="index.html">Back to Home</a></div>
+    </div>
+  </footer>
+
+  <dialog id="locationDialog" class="glass">
+    <form method="dialog" class="dialog__content">
+      <h3>Select your location</h3>
+      <label>Province</label>
+      <select id="provinceSelect" required></select>
+      <label>City</label>
+      <select id="citySelect" required></select>
+      <div class="dialog__actions">
+        <button class="btn btn--ghost" value="cancel">Cancel</button>
+        <button class="btn btn--primary" id="saveLocation" value="default">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
